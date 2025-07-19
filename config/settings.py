@@ -46,11 +46,13 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
-    'gunicorn'
+    'gunicorn',
+    'whitenoise.runserver_nostatic'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'allauth.account.middleware.AccountMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -152,3 +154,5 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 # redirect url after successful login
 LOGIN_REDIRECT_URL = 'index'
+
+STATICFILES_STORAGE =  "whitenoise.storage.CompressedManifestStaticFilesStorage"
