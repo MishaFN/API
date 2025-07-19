@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-5=tpn!luya-eq!f=u!qa2iru5^yl+3rfk^xq9n8^5ogze5!i33
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth.registration'
+    'dj_rest_auth.registration',
+    'gunicorn'
 ]
 
 MIDDLEWARE = [
@@ -135,6 +136,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR/'staticfiles'
 STATICFILES_DIRS = [BASE_DIR/'static']
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR/'media'
